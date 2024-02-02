@@ -10,8 +10,9 @@ class Button(pygame.sprite.Sprite):
         self.chosen_picture_path = picture_paths[1]
 
         # current image
+        self.color_key = (163, 73, 164)
         self.image = pygame.image.load(picture_paths[0]).convert()
-        self.image.set_colorkey((0, 0, 0))
+        self.image.set_colorkey(self.color_key)
 
         # image size
         self.rect = self.image.get_rect()
@@ -44,7 +45,7 @@ class Button(pygame.sprite.Sprite):
 
     def set_picture(self, picture_path):
         self.image = pygame.image.load(picture_path).convert()
-        self.image.set_colorkey((0, 0, 0))
+        self.image.set_colorkey(self.color_key)
 
     def check_if_mouse_xy_matches_button_xy(self, mouse_x, mouse_y):
         if self.check_if_mouse_x_matches_button_x(mouse_x) and \

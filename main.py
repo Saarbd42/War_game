@@ -7,6 +7,7 @@ import unit_choice_functions as ucf
 # Constants
 WIDTH, HEIGHT, FPS = const.get_constants()
 # BLACK, WHITE, LIGHT_RED, BROWN = const.get_colors()
+units_num = 0
 
 # Initialize Pygame
 screen, clock = pyf.initiate_pygame(WIDTH, HEIGHT)
@@ -30,9 +31,11 @@ while running:
 
     # Game logic
     button_list = ucf.button_collision_test(button_list, mouse_position, did_user_click)
+    if did_user_click:
+        units_num = ucf.how_many_more_units_can_the_player_choose(button_list)
 
     # Draw everything
-    ucf.draw_everything_in_unit_choice_stage(screen, button_list, mouse_position)
+    ucf.draw_everything_in_unit_choice_stage(screen, button_list, mouse_position, units_num)
 
     # Update the display
     clock = pyf.update_frame(clock, FPS)
