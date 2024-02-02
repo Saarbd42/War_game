@@ -1,6 +1,6 @@
 import pygame
-import button as bt
-import images_functions as imf
+import unit_choice.button as bt
+import general_functions.images_functions as imf
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -83,7 +83,7 @@ def draw_unit_choice_text(screen, button_list):
 
 
 def draw_the_head_line(screen):
-    title_text, title_rect = imf.get_text_stats("Pick 4 units", 42, BLACK, [240, 50])
+    title_text, title_rect = imf.get_text_stats("Pick 4 units", 42, WHITE, [240, 50])
     imf.draw_titles(screen, [title_text, title_rect])
 
 
@@ -94,10 +94,6 @@ def draw_button_names(screen, chosen_unit_list):
                           [70, 300], [190, 300], [300, 300], [390, 300]]
     for i in range(len(unit_names_list)):
         title_text, title_rect = get_button_title_details(unit_names_list[i], unit_location_list[i], chosen_unit_list)
-        # if unit_names_list[i] in chosen_unit_list:
-        # title_text, title_rect = get_chosen_button_title_details(unit_names_list[i], unit_location_list[i])
-        # else:
-        # title_text, title_rect = get_normal_button_title_details(unit_names_list[i], unit_location_list[i])
         imf.draw_titles(screen, [title_text, title_rect])
 
 
