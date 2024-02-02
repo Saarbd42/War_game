@@ -16,6 +16,7 @@ button_list = ucf.get_button_list()
 # Game loop
 running = True
 units_num = 0
+chosen_units = []
 while running:
 
     mouse_position = ucf.get_mouse_position()
@@ -32,6 +33,7 @@ while running:
     button_list = ucf.button_collision_test(button_list, mouse_position, did_user_click)
     if did_user_click:
         units_num = ucf.how_many_more_units_can_the_player_choose(button_list)
+        chosen_units = ucf.which_units_did_player_choose(button_list)
 
     # Draw everything
     ucf.draw_everything_in_unit_choice_stage(screen, button_list, mouse_position)
@@ -41,7 +43,7 @@ while running:
 
     if units_num == 4:
         running = False
-
+print(chosen_units)
 # Quit Pygame
 pygame.quit()
 sys.exit()

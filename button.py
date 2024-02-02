@@ -22,6 +22,9 @@ class Button(pygame.sprite.Sprite):
         # clicked
         self.clicked = False
 
+        # unit
+        self.unit = unit
+
     def check_mouse_collision(self, mouse_x, mouse_y, user_clicked):
         self.check_if_user_clicked_button(mouse_x, mouse_y, user_clicked)
         self.change_button_picture_according_user_actions(mouse_x, mouse_y)
