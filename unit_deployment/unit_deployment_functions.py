@@ -11,8 +11,9 @@ BLUE = (63, 72, 204)
 DARK_GREY = (90, 90, 90)
 GREY = (160, 160, 160)
 GREEN = (34, 177, 76)
-
-WIDTH, HEIGHT, FPS = const. get_constants()
+DARK_RED = (136, 0, 21)
+VERY_DARK_RED = (77, 0, 12)
+WIDTH, HEIGHT, FPS = const.get_constants()
 
 
 def draw_everything_in_unit_deployment_stage(screen, mouse_location, current_button, deployment):
@@ -76,17 +77,23 @@ def draw_background(screen):
 
 def draw_background_rectangle(screen, starting_y):
     pygame.draw.rect(screen, GREEN, (0, starting_y, 720, 360))  # (x, y, width, height)
-    pygame.draw.rect(screen, GREY, (360, starting_y, 720, 360))  # (x, y, width, height)
+    pygame.draw.rect(screen, DARK_RED, (360, starting_y, 720, 360))  # (x, y, width, height)
 
 
 def draw_background_lines(screen, starting_y):
     for i in range(5):
         if (120 + i * 120) < 360:
-            pygame.draw.line(screen, DARK_BROWN, (120 + 120 * i, starting_y), (120 + 120 * i, HEIGHT),
-                             5)  # (start_pos), (end_pos), width
+            color = DARK_BROWN
+            size = 2
+        elif (120 + i * 120) == 360:
+            color = BLACK
+            size = 5
         else:
-            pygame.draw.line(screen, DARK_GREY, (120 + 120 * i, starting_y), (120 + 120 * i, HEIGHT),
-                             5)  # (start_pos), (end_pos), width
+            color = VERY_DARK_RED
+            size = 2
+
+        pygame.draw.line(screen, color, (120 + 120 * i, starting_y), (120 + 120 * i, HEIGHT),
+                         size)  # (start_pos), (end_pos), width
 
 
 def draw_mouse(screen, mouse_location, current_button):
