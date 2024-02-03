@@ -1,0 +1,21 @@
+        # land_path = 'sprites/air_defence.png'
+    # land_image = pygame.image.load(land_path)
+    # land_image.set_colorkey((163, 73, 164))
+    # land_rect = land_image.get_rect()
+    # for j in range(3):
+        # for i in range(3):
+            # land_rect.x = 20 + i*120 # - 100*j
+            # land_rect.y = 130 + j*80
+            # screen.blit(land_image, land_rect)
+
+
+
+    # land_path = 'sprites/enemy_land_cube.png'
+    # land_image = pygame.image.load(land_path)
+    # land_image.set_colorkey((163, 73, 164))
+    # land_rect = land_image.get_rect()
+    # for j in range(3):
+    # for i in range(6):
+    # land_rect.x = 10 + i*90 # - 100*j
+    # land_rect.y = 130 + j*60
+    # screen.blit(land_image, land_rect)

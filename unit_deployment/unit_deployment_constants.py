@@ -1,6 +1,6 @@
 
 def get_constants():
-    width = 480
+    width = 720
     height = 360
     fps = 60
     return width, height, fps

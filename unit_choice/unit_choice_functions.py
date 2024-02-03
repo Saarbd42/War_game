@@ -83,7 +83,7 @@ def draw_unit_choice_text(screen, button_list):
 
 
 def draw_the_head_line(screen):
-    title_text, title_rect = imf.get_text_stats("Pick 4 units", 42, WHITE, [240, 50])
+    title_text, title_rect = imf.get_text_stats("Pick 4 units", 60, BLACK, [240, 40])
     imf.draw_titles(screen, [title_text, title_rect])
 
 

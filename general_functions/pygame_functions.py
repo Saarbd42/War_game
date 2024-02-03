@@ -22,3 +22,9 @@ def update_frame(clock, FPS):
     # Cap the frame rate
     clock.tick(FPS)
     return clock
+
+
+def get_mouse_position():
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    return [mouse_x, mouse_y]
+
