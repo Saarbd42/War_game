@@ -1,19 +1,15 @@
 import pygame
-import Deployment_button as dbt
-
-def get_deployment_button_list(player_chosen_units):
-    dep_button_list = pygame.sprite.Group()
-    origin_button_list = get_deployment_buttons(player_chosen_units)
-    for button in origin_button_list:
-        dep_button_list.add(button)
-    return dep_button_list
+import unit_choice.button as bt
 
 
-def get_deployment_buttons(player_chosen_units):
-    button_list = []
-    # for i in range(len(player_chosen_units)):
-        # string =
-        # dbt.Deployment_button([40, 100], )
-    return []
+def get_next_button(player_chosen_units):
+    string = get_sprite_paths(player_chosen_units[0])
+    new_button = bt.Button([50, 30], string, player_chosen_units[0])
+    player_chosen_units = player_chosen_units[1:]
+    return player_chosen_units, new_button
 
-# def get_picture_path()
+
+def get_sprite_paths(sprite_name):
+    string = ["sprites/" + str(sprite_name) + ".png",
+              "sprites/" + str(sprite_name) + "_blue_mark.png"]
+    return string

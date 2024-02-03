@@ -21,12 +21,10 @@ def get_unit_buttons():
     button_list = []
     button_position_list = [[50, 100], [130, 98], [250, 100], [340, 100],
                             [50, 220], [165, 220], [278, 220], [355, 220]]
-    button_sprite_name_list = ["infantry", "tank", "atgm", "plane",
-                               "missile", "air_defence", "spy", "cyber"]
     button_unit_names_list = ["Infantry", "Tanks", "Anti-tank", "Air-force",
                               "Missiles", "Air-defence", "Spies", "Cyber"]
     for i in range(len(button_position_list)):
-        string = get_sprite_paths(button_sprite_name_list[i])
+        string = get_sprite_paths(button_unit_names_list[i])
         button_list.append(bt.Button(button_position_list[i], string, button_unit_names_list[i]))
     return button_list
 
