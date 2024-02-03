@@ -32,7 +32,7 @@ def unit_choice_game_loop(screen, clock, FPS):
                 running = False
 
         # Draw everything and update the display
-        ucf.draw_everything_in_unit_choice_stage(screen, button_list, mouse_position)
+        ucf.draw_everything_in_unit_choice_stage(screen, button_list, mouse_position, units_num)
         clock = pyf.update_frame(clock, FPS)
 
     return chosen_units

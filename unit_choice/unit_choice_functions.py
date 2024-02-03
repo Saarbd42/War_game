@@ -62,10 +62,10 @@ def how_many_more_units_can_the_player_choose(button_list):
     return unit_num
 
 
-def draw_everything_in_unit_choice_stage(screen, button_list, mouse_location):
+def draw_everything_in_unit_choice_stage(screen, button_list, mouse_location, units_num):
     screen.fill(BROWN)
     button_list.draw(screen)
-    draw_unit_choice_text(screen, button_list)
+    draw_unit_choice_text(screen, button_list, units_num)
     draw_mouse(screen, mouse_location)
 
 
@@ -74,14 +74,14 @@ def draw_mouse(screen, mouse_location):
     pygame.mouse.set_visible(False)
 
 
-def draw_unit_choice_text(screen, button_list):
-    draw_the_head_line(screen)
+def draw_unit_choice_text(screen, button_list, units_num):
+    draw_the_head_line(screen, units_num)
     chosen_unit_list = which_units_did_player_choose(button_list)
     draw_button_names(screen, chosen_unit_list)
 
 
-def draw_the_head_line(screen):
-    title_text, title_rect = imf.get_text_stats("Pick 4 units", 60, BLACK, [240, 40])
+def draw_the_head_line(screen, units_num):
+    title_text, title_rect = imf.get_text_stats("Pick " + str(4 - units_num) + " units", 60, BLACK, [240, 40])
     imf.draw_titles(screen, [title_text, title_rect])
 
 
