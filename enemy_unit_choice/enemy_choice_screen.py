@@ -8,18 +8,13 @@ BROWN = (129, 127, 38)
 BLACK = (0, 0, 0)
 
 
-def show_enemy_choice_screen(player_units):
-    # Constants
-    WIDTH, HEIGHT, FPS = const.get_constants()
-
-    # Initialize Pygame
-    screen, clock = pyf.initiate_pygame(WIDTH, HEIGHT)
-
-    enemy_chosen_units = eucf.randomly_choose_enemy_units()
-
+def show_enemy_choice_screen(player_units, enemy_chosen_units):
     if check_for_spies(player_units):
+        # Constants
+        WIDTH, HEIGHT, FPS = const.get_constants()
+        # Initialize Pygame
+        screen, clock = pyf.initiate_pygame(WIDTH, HEIGHT)
         enemy_choice_game_loop(screen, clock, FPS, enemy_chosen_units)
-    return enemy_chosen_units
 
 
 def enemy_choice_game_loop(screen, clock, FPS, enemy_chosen_units):

@@ -4,27 +4,38 @@ import random
 def randomly_choose_enemy_units():
     random_num = random.randint(1, 4)
     if random_num == 1:
-        enemy_units_list = israel_6_day_war()
+        return israel_6_day_war()
     elif random_num == 2:
-        enemy_units_list = egypt_1973_war()
+        return egypt_1973_war()
     elif random_num == 3:
-        enemy_units_list = iranian_proxy()
+        return iranian_proxy()
     else:
-        enemy_units_list = modern_russia()
-    return enemy_units_list
+        return modern_russia()
 
 
 def israel_6_day_war():
-    return ["Infantry", "Tanks", "Air-force", "Spies"]
+    chosen_units = ["Infantry", "Tanks", "Air-force", "Spies"]
+    deployed_units = [[4, 'Infantry', 0], [4, 'Tanks', 1], [6, "Air-force", 0]]
+    non_deployed_units = ["Spies"]
+    return chosen_units, deployed_units, non_deployed_units
 
 
 def egypt_1973_war():
-    return ["Infantry", "Tanks", "Anti-tank", "Air-defence"]
+    chosen_units = ["Infantry", "Tanks", "Anti-tank", "Air-defence"]
+    deployed_units = [[4, 'Infantry', 0], [4, 'Tanks', 1], [4, "Anti-tank", 2], [4, "Air-defence", 3]]
+    non_deployed_units = []
+    return chosen_units, deployed_units, non_deployed_units
 
 
 def iranian_proxy():
-    return ["Infantry", "Anti-tank", "Missiles", "Air-defence"]
+    chosen_units = ["Infantry", "Anti-tank", "Missiles", "Spies"]
+    deployed_units = [[6, 'Infantry', 0], [6, 'Anti-tank', 1], [6, "Missiles", 2]]
+    non_deployed_units = ["Spies"]
+    return chosen_units, deployed_units, non_deployed_units
 
 
 def modern_russia():
-    return ["Tanks", "Cyber", "Missiles", "Air-force"]
+    chosen_units = ["Tanks", "Cyber", "Missiles", "Air-force"]
+    deployed_units = [[4, 'Tanks', 0], [6, "Missiles", 0], [6, "Air-force", 1]]
+    non_deployed_units = ["Cyber"]
+    return chosen_units, deployed_units, non_deployed_units
