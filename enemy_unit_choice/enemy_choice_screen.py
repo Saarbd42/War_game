@@ -3,6 +3,7 @@ import general_functions.images_functions as imf
 import general_functions.pygame_functions as pyf
 import enemy_unit_choice.enemy_unit_choice_functions as eucf
 import pygame
+import general_functions.colors as cl
 
 BROWN = (129, 127, 38)
 BLACK = (0, 0, 0)
@@ -54,12 +55,12 @@ def draw_enemy_choice_text(screen):
 
 
 def draw_enemy_choice_head_line(screen):
-    title_text, title_rect = imf.get_text_stats("The enemy units:", 60, BLACK, [240, 40])
+    title_text, title_rect = imf.get_text_stats("The enemy picked:", 60, cl.DARK_RED, [240, 50])
     imf.draw_titles(screen, [title_text, title_rect])
 
 
 def draw_enemy_choice_bottom_line(screen):
-    title_text, title_rect = imf.get_text_stats("Click anywhere to continue", 45, BLACK, [240, 330])
+    title_text, title_rect = imf.get_text_stats("Click anywhere to continue", 45, cl.WHITE, [240, 330])
     imf.draw_titles(screen, [title_text, title_rect])
 
 
