@@ -1,4 +1,4 @@
-import unit_choice.constants as const
+import unit_choice.unit_choice_constants as const
 import general_functions.images_functions as imf
 import general_functions.pygame_functions as pyf
 import enemy_unit_choice.enemy_unit_choice_functions as eucf
@@ -24,7 +24,7 @@ def enemy_choice_game_loop(screen, clock, FPS, enemy_chosen_units):
     while running:
 
         mouse_position = pyf.get_mouse_position()
-        running, did_user_click = pyf.user_choice_events()
+        running, did_user_click = pyf.user_events()
 
         # Game logic
         position_list, path_list = get_enemy_details(enemy_chosen_units)

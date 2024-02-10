@@ -1,5 +1,5 @@
 import pygame
-import unit_choice.constants as const
+import unit_choice.unit_choice_constants as const
 import general_functions.pygame_functions as pyf
 import unit_choice.unit_choice_functions as ucf
 

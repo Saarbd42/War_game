@@ -46,7 +46,7 @@ class Army():
 
     def build_an_army(self, deployable_data_list):
         unit_list = []
-        for i in range(deployable_data_list):
+        for i in range(len(deployable_data_list)):
             unit_data = deployable_data_list[i]
             unit_list.append(self.get_unit_object(unit_data))
         return unit_list

@@ -7,7 +7,7 @@ class Unit():
         self.y_position = unit_data[2]
 
         # Data
-        self.spotted_by_enemy = False
+        self.exposed = False
         self.dead = False
         self.life = 100
         self.dmg = 20
@@ -24,9 +24,9 @@ class Unit():
 
     def check_if_exposed(self, enemy_army):
         if enemy_army.spies or self.check_if_close_to_enemy(enemy_army):
-            self.spotted_by_enemy = True
+            self.exposed = True
         else:
-            self.spotted_by_enemy = False
+            self.exposed = False
 
     def check_if_close_to_enemy(self, enemy_army):
         if enemy_army.front_line - 1 == self.x_position or enemy_army.front_line + 1 == self.x_position:

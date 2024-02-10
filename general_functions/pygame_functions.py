@@ -26,7 +26,13 @@ def update_frame(clock, FPS):
     return clock
 
 
-def user_choice_events():
+def get_user_input():
+    mouse_position = get_mouse_position()
+    running, did_user_click = user_events()
+    return mouse_position, did_user_click, running
+
+
+def user_events():
     # Event handling
     running = True
     did_user_click = False
