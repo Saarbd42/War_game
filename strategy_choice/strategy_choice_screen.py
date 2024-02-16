@@ -1,6 +1,6 @@
 import strategy_choice.strategy_choice_constants as const
 import general_functions.pygame_functions as pyf
-import strategy_choice.strategey_choice_functions as scf
+import strategy_choice.strategey_choice_drawing_functions as sdf
 
 
 def show_strategy_screen(player_army, enemy_army):
@@ -26,7 +26,7 @@ def unit_strategy_game_loop(basic_variables, armies):
         # Game logic
 
         # Draw everything and update the display
-        scf.draw_everything_in_strategy_choice_stage(screen, mouse_position, armies)
+        sdf.draw_everything_in_strategy_choice_stage(screen, mouse_position, armies)
         clock = pyf.update_frame(clock, FPS)
 
 

@@ -11,12 +11,28 @@ def draw_everything_in_strategy_choice_stage(screen, mouse_location, armies):
     screen.fill(cl.BLUE)
     draw_background(screen)
     draw_strategy_choice_text(screen)
-    draw_army_units(armies[0], screen)
+    draw_armies(armies, screen)
     # draw_deployment(deployment, screen)
     pyf.draw_mouse(screen, mouse_location)
 
 
-def draw_army_units(army, screen):
+def draw_armies(armies, screen):
+    for army in armies:
+        if army.am_i_enemy_team:
+            draw_enemy_army_units(army, screen)
+        else:
+            draw_player_army_units(army, screen)
+
+
+def draw_enemy_army_units(army, screen):
+    if len(army.unit_list) > 0:
+        for unit in army.unit_list:
+            if unit.exposed:
+                unit_image, unit_rect = get_enemy_unit_graphic_details(unit)
+                screen.blit(unit_image, unit_rect)
+
+
+def draw_player_army_units(army, screen):
     if len(army.unit_list) > 0:
         for unit in army.unit_list:
             unit_image, unit_rect = get_unit_graphic_details(unit)
@@ -27,6 +43,19 @@ def get_unit_graphic_details(unit):
     unit_image = get_unit_image(unit)
     unit_rect = get_unit_rect(unit, unit_image)
     return unit_image, unit_rect
+
+
+def get_enemy_unit_graphic_details(unit):
+    unit_image = get_enemy_unit_image(unit)
+    unit_rect = get_unit_rect(unit, unit_image)
+    return unit_image, unit_rect
+
+
+def get_enemy_unit_image(unit):
+    unit_path = 'sprites/' + str(unit.type) + '_red_mark.png'
+    unit_image = pygame.image.load(unit_path)
+    unit_image.set_colorkey(cl.COLOR_KEY)
+    return unit_image
 
 
 def get_unit_image(unit):
@@ -60,7 +89,7 @@ def draw_background(screen):
 
 def draw_background_rectangle(screen, starting_y):
     pygame.draw.rect(screen, cl.GREEN, (0, starting_y, 720, 360))  # (x, y, width, height)
-    pygame.draw.rect(screen, cl.DARK_RED, (360, starting_y, 720, 360))  # (x, y, width, height)
+    pygame.draw.rect(screen, cl.GREY, (360, starting_y, 720, 360))  # (x, y, width, height)
 
 
 def draw_background_lines(screen, starting_y):
@@ -72,7 +101,7 @@ def draw_background_lines(screen, starting_y):
             color = cl.BLACK
             size = 5
         else:
-            color = cl.VERY_DARK_RED
+            color = cl.DARK_GREY
             size = 2
         pygame.draw.line(screen, color, (120 + 120 * i, starting_y), (120 + 120 * i, HEIGHT),
                          size)  # (start_pos), (end_pos), width

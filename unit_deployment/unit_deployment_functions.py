@@ -1,6 +1,7 @@
 import pygame
 import general_functions.images_functions as imf
 import unit_deployment.unit_deployment_constants as const
+import general_functions.colors as cl
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -77,7 +78,7 @@ def draw_background(screen):
 
 def draw_background_rectangle(screen, starting_y):
     pygame.draw.rect(screen, GREEN, (0, starting_y, 720, 360))  # (x, y, width, height)
-    pygame.draw.rect(screen, DARK_RED, (360, starting_y, 720, 360))  # (x, y, width, height)
+    pygame.draw.rect(screen, cl.GREY, (360, starting_y, 720, 360))  # (x, y, width, height)
 
 
 def draw_background_lines(screen, starting_y):
@@ -89,7 +90,7 @@ def draw_background_lines(screen, starting_y):
             color = BLACK
             size = 5
         else:
-            color = VERY_DARK_RED
+            color = cl.DARK_GREY
             size = 2
 
         pygame.draw.line(screen, color, (120 + 120 * i, starting_y), (120 + 120 * i, HEIGHT),
