@@ -26,7 +26,7 @@ def unit_strategy_game_loop(basic_variables, armies):
         # Game logic
 
         # Draw everything and update the display
-        scf.draw_everything_in_strategy_choice_stage(screen, mouse_position)
+        scf.draw_everything_in_strategy_choice_stage(screen, mouse_position, armies)
         clock = pyf.update_frame(clock, FPS)
 
 

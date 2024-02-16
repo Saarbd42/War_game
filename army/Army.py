@@ -18,18 +18,19 @@ class Army():
         self.unit_list = self.build_an_army(deployable_data_list)
         self.spies = self.check_for_spies(non_deployable_data_list)
         self.cyber = self.check_for_cyber(non_deployable_data_list)
-        self.front_line = self.update_front_line(am_i_enemy_team)
+        self.am_i_enemy_team = am_i_enemy_team
+        self.front_line = self.update_front_line()
         self.communication = True
 
     def check_which_units_are_exposed(self, enemy_army):
         for unit in self.unit_list:
             unit.check_if_exposed(enemy_army)
 
-    def update_front_line(self, enemy_team):
-        front_list = get_initial_front_line(enemy_team)
+    def update_front_line(self):
+        front_list = get_initial_front_line(self.am_i_enemy_team)
         if self.check_if_army_exist():
             for unit in self.unit_list:
-                front_list = self.check_if_unit_in_front_line(unit, enemy_team, front_list)
+                front_list = self.check_if_unit_in_front_line(unit, self.am_i_enemy_team, front_list)
         return front_list
 
     def check_if_army_exist(self):
@@ -42,7 +43,6 @@ class Army():
             return min(unit.x_position, front_list)
         else:
             return max(unit.x_position, front_list)
-
 
     def build_an_army(self, deployable_data_list):
         unit_list = []
@@ -74,4 +74,3 @@ class Army():
         if "Cyber" in non_deployable_data_list:
             return True
         return False
-
