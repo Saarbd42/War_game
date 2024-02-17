@@ -42,8 +42,9 @@ def unit_deployment_game_loop(screen, clock, FPS, player_chosen_units):
         # Game logic
         current_button.check_mouse_collision(mouse_position[0], mouse_position[1], did_user_click)
         if ready_to_deploy(current_button, did_user_click, mouse_position):
-            deployment = add_new_deployment(deployment, mouse_position, current_button)
-            player_chosen_units, current_button, running = update_stats_for_next_deployment(player_chosen_units,
+            if not check_if_territory_crowded(mouse_position, current_button, deployment):
+                deployment = add_new_deployment(deployment, mouse_position, current_button)
+                player_chosen_units, current_button, running = update_stats_for_next_deployment(player_chosen_units,
                                                                                             current_button)
             if not running:
                 return deployment
@@ -100,32 +101,32 @@ def user_deployment_events():
 
 def deploy_troop(mouse_position, current_button, deployment):
     new_deployment = deploy_troop_to_territory(mouse_position, current_button)
-    new_deployment = check_if_crowded_in_territory(deployment, new_deployment)
-    return new_deployment
-
-
-def check_if_crowded_in_territory(deployment_list, new_deployment):
-    if len(deployment_list) > 0:
-        for deployment in deployment_list:
-            if deployment[0] == new_deployment[0]:
-                new_deployment[2] += 1
+    # can_player_put_there = check_if_crowded_in_territory(deployment, new_deployment)
     return new_deployment
 
 
 def deploy_troop_to_territory(mouse_position, current_button):
-    if mouse_position[0] < 120:
-        return [1, current_button.unit, 0]
-    elif mouse_position[0] < 240:
-        return [2, current_button.unit, 0]
-    else:
-        return [3, current_button.unit, 0]
+    x_position = int(mouse_position[0] / 120) + 1
+    y_position = int((mouse_position[1] - 180) / 60)
+    return [x_position, current_button.unit, y_position]
 
-
-# def get_troop_y_position(mouse_position):
 
 def ready_to_deploy(current_button, did_user_click, mouse_position):
     if current_button.clicked and did_user_click and is_mouse_on_deployment_territory(mouse_position):
         return True
+    return False
+
+
+def check_if_territory_crowded(mouse_position, current_button, deployment):
+    new_deployment_stats = deploy_troop_to_territory(mouse_position, current_button)
+    return check_if_crowded_in_territory(deployment, new_deployment_stats)
+
+
+def check_if_crowded_in_territory(deployment_list, new_deployment_stats):
+    if len(deployment_list) > 0:
+        for deployment in deployment_list:
+            if deployment[0] == new_deployment_stats[0] and deployment[2] == new_deployment_stats[2]:
+                return True
     return False
 
 
