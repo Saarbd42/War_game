@@ -1,7 +1,7 @@
 import unit_deployment.unit_deployment_constants as const
 import general_functions.pygame_functions as pyf
 import pygame
-import unit_deployment.unit_deployment_functions as udf
+import unit_deployment.unit_deployment_drawing_functions as udf
 import unit_deployment.unit_deployment_buttons_functions as dbf
 
 
@@ -120,6 +120,8 @@ def deploy_troop_to_territory(mouse_position, current_button):
     else:
         return [3, current_button.unit, 0]
 
+
+# def get_troop_y_position(mouse_position):
 
 def ready_to_deploy(current_button, did_user_click, mouse_position):
     if current_button.clicked and did_user_click and is_mouse_on_deployment_territory(mouse_position):

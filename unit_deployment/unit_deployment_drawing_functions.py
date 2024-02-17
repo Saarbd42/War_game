@@ -78,10 +78,34 @@ def draw_background(screen):
 
 def draw_background_rectangle(screen, starting_y):
     pygame.draw.rect(screen, GREEN, (0, starting_y, 720, 360))  # (x, y, width, height)
-    pygame.draw.rect(screen, cl.GREY, (360, starting_y, 720, 360))  # (x, y, width, height)
+    pygame.draw.rect(screen, cl.DARK_RED, (360, starting_y, 720, 360))  # (x, y, width, height)
 
 
 def draw_background_lines(screen, starting_y):
+    draw_background_horizontal_lines(screen, starting_y)
+    draw_background_vertical_lines(screen, starting_y)
+
+
+def draw_background_horizontal_lines(screen, starting_y):
+    for i in range(5):
+        y_position = starting_y + 50 + i * 60
+        draw_player_horizontal_line(screen, y_position, DARK_BROWN)
+        draw_enemy_horizontal_line(screen, y_position, cl.VERY_DARK_RED)
+
+
+def draw_player_horizontal_line(screen, y_position, color):
+    size = 2
+    pygame.draw.line(screen, color, (0, y_position), (WIDTH / 2, y_position),
+                     size)  # (start_pos), (end_pos), width
+
+
+def draw_enemy_horizontal_line(screen, y_position, color):
+    size = 2
+    pygame.draw.line(screen, color, (WIDTH / 2, y_position), (WIDTH, y_position),
+                     size)
+
+
+def draw_background_vertical_lines(screen, starting_y):
     for i in range(5):
         if (120 + i * 120) < 360:
             color = DARK_BROWN
@@ -90,7 +114,7 @@ def draw_background_lines(screen, starting_y):
             color = BLACK
             size = 5
         else:
-            color = cl.DARK_GREY
+            color = cl.VERY_DARK_RED
             size = 2
 
         pygame.draw.line(screen, color, (120 + 120 * i, starting_y), (120 + 120 * i, HEIGHT),

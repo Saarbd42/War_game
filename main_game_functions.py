@@ -14,5 +14,14 @@ def get_game_armies():
 def player_choose_and_deploy_army(enemy_chosen_units):
     player_chosen_units = ucs.show_unit_choice_screen()
     ecs.show_enemy_choice_screen(player_chosen_units, enemy_chosen_units)
+    player_chosen_units = multiply_unit_choice(player_chosen_units, 2)
     player_unit_deployment, player_non_deployable_units = uds.show_unit_deployment_screen(player_chosen_units)
     return [player_unit_deployment, player_non_deployable_units]
+
+
+def multiply_unit_choice(player_chosen_units, num):
+    new_player_chosen_units = []
+    for unit in player_chosen_units:
+        for i in range(num):
+            new_player_chosen_units.append(unit)
+    return new_player_chosen_units
