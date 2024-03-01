@@ -9,7 +9,7 @@ WIDTH, HEIGHT, FPS = const.get_constants()
 
 def draw_everything_in_strategy_choice_stage(screen, mouse_location, armies):
     screen.fill(cl.BLUE)
-    draw_background(screen)
+    draw_background(screen, armies[0])
     draw_strategy_choice_text(screen)
     draw_armies(armies, screen)
     # draw_deployment(deployment, screen)
@@ -81,15 +81,29 @@ def draw_the_head_line(screen):
     imf.draw_titles(screen, [title_text, title_rect])
 
 
-def draw_background(screen):
+def draw_background(screen, player_army):
     starting_y = 180
-    draw_background_rectangle(screen, starting_y)
+    draw_background_rectangle_according_to_intel(screen, starting_y, player_army)
+    # draw_background_rectangle(screen, starting_y)
     draw_background_lines(screen, starting_y)
 
 
 def draw_background_rectangle(screen, starting_y):
     pygame.draw.rect(screen, cl.GREEN, (0, starting_y, 720, 360))  # (x, y, width, height)
     pygame.draw.rect(screen, cl.GREY, (360, starting_y, 720, 360))  # (x, y, width, height)
+
+
+def draw_background_rectangle_according_to_intel(screen, starting_y, player_army):
+    end_of_player_sight = get_player_battle_ground_sight(player_army)
+    pygame.draw.rect(screen, cl.GREEN, (0, starting_y, 720, 360))  # (x, y, width, height)
+    pygame.draw.rect(screen, cl.GREY, (end_of_player_sight, starting_y, 720, 360))  # (x, y, width, height)
+
+
+def get_player_battle_ground_sight(player_army):
+    if player_army.spies:
+        return 720
+    player_sight = 120 + 120 * player_army.front_line
+    return player_sight
 
 
 def draw_background_lines(screen, starting_y):

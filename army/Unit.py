@@ -29,9 +29,14 @@ class Unit():
             self.exposed = False
 
     def check_if_close_to_enemy(self, enemy_army):
-        if enemy_army.front_line - 1 == self.x_position or enemy_army.front_line + 1 == self.x_position:
-            return True
+        for enemy_unit in enemy_army.unit_list:
+            if self.check_if_enemy_unit_close(enemy_unit):
+                return True
         return False
+
+    def check_if_enemy_unit_close(self, enemy_unit):
+        if enemy_unit.x_position - 1 == self.x_position or enemy_unit.x_position == self.x_position or enemy_unit.x_position + 1 == self.x_position:
+            return True
 
     def reset_command(self):
         self.current_command = None

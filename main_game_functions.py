@@ -6,7 +6,8 @@ import army.army_functions as army_f
 
 
 def get_game_armies():
-    enemy_chosen_units, enemy_army_data = ecf.randomly_choose_enemy_units()
+    # enemy_chosen_units, enemy_army_data = ecf.randomly_choose_enemy_units()
+    enemy_chosen_units, enemy_army_data = ecf.get_iranian_proxy()
     player_army_data = player_choose_and_deploy_army(enemy_chosen_units)
     return army_f.build_armies(player_army_data, enemy_army_data)
 

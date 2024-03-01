@@ -1,6 +1,10 @@
 import random
 
 
+def get_iranian_proxy():
+    return iranian_proxy()
+
+
 def randomly_choose_enemy_units():
     random_num = random.randint(1, 4)
     if random_num == 1:
@@ -29,7 +33,8 @@ def egypt_1973_war():
 
 def iranian_proxy():
     chosen_units = ["Infantry", "Anti-tank", "Missiles", "Spies"]
-    deployed_units = [[6, 'Infantry', 0], [6, 'Anti-tank', 1], [6, "Missiles", 2]]
+    deployed_units = [[6, 'Infantry', 0], [5, 'Anti-tank', 1], [5, 'Anti-tank', 2], [6, "Missiles", 2],
+                      [6, "Missiles", 1], [6, 'Infantry', 3]]
     non_deployed_units = ["Spies"]
     return chosen_units, [deployed_units, non_deployed_units]
 
