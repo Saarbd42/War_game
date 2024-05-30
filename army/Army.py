@@ -13,7 +13,7 @@ def get_initial_front_line(enemy_team):
         return 0
 
 
-class Army():
+class Army:
     def __init__(self, deployable_data_list, non_deployable_data_list, am_i_enemy_team):
         self.unit_list = self.build_an_army(deployable_data_list)
         self.spies = self.check_for_spies(non_deployable_data_list)
