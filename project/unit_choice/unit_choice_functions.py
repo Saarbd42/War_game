@@ -1,14 +1,10 @@
 import pygame
 import project.unit_choice.button as bt
 import project.general_functions.images_functions as imf
+from project.general_functions.colors import BLACK, LIGHT_BLUE, LIGHT_GREY
 
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-BROWN = (129, 127, 38)
-# LIGHT_BLUE = (87, 136, 242)
-LIGHT_BLUE = (0, 162, 232)
-BLUE = (63, 72, 204)
-LIGHT_GREY = (237, 237, 242)
+UNITS_NAMES = ["Infantry", "Tanks", "Artillery", "Air-force",
+               "Missiles", "Air-defence", "Spies", "Cyber"]
 
 
 def get_button_list():
@@ -23,11 +19,9 @@ def get_unit_buttons():
     button_list = []
     button_position_list = [[50, 100], [130, 98], [250, 100], [340, 100],
                             [50, 220], [165, 220], [278, 220], [355, 220]]
-    button_unit_names_list = ["Infantry", "Tanks", "Anti-tank", "Air-force",
-                              "Missiles", "Air-defence", "Spies", "Cyber"]
     for i in range(len(button_position_list)):
-        string = get_sprite_paths(button_unit_names_list[i])
-        button_list.append(bt.Button(button_position_list[i], string, button_unit_names_list[i]))
+        string = get_sprite_paths(UNITS_NAMES[i])
+        button_list.append(bt.Button(button_position_list[i], string, UNITS_NAMES[i]))
     return button_list
 
 
@@ -88,12 +82,10 @@ def draw_the_head_line(screen, units_num):
 
 
 def draw_button_names(screen, chosen_unit_list):
-    unit_names_list = ["Infantry", "Tanks", "Anti-tank", "Air-force",
-                       "Missiles", "Air-defence", "Spies", "Cyber"]
     unit_location_list = [[70, 175], [175, 175], [280, 175], [390, 175],
                           [70, 300], [190, 300], [300, 300], [390, 300]]
-    for i in range(len(unit_names_list)):
-        title_text, title_rect = get_button_title_details(unit_names_list[i], unit_location_list[i], chosen_unit_list)
+    for i in range(len(UNITS_NAMES)):
+        title_text, title_rect = get_button_title_details(UNITS_NAMES[i], unit_location_list[i], chosen_unit_list)
         imf.draw_titles(screen, [title_text, title_rect])
 
 

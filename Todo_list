@@ -1,0 +1,11 @@
+1. Fix Sprites (all should look like artillery)
+2. Army class + Fix of Unit Classes
+3. Build the following screen:
+    a. Territory and civil situation
+    b. Intel Report
+    c.land forces screen
+    d. air-force/missiles/air-defence screens
+    e. cyber screen
+    f. War report screen/possibilities
+4. Game logic
+5. End game (screen + logic)
