@@ -5,8 +5,10 @@ import project.general_functions.images_functions as imf
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BROWN = (129, 127, 38)
+# LIGHT_BLUE = (87, 136, 242)
 LIGHT_BLUE = (0, 162, 232)
 BLUE = (63, 72, 204)
+LIGHT_GREY = (237, 237, 242)
 
 
 def get_button_list():
@@ -63,14 +65,14 @@ def how_many_more_units_can_the_player_choose(button_list):
 
 
 def draw_everything_in_unit_choice_stage(screen, button_list, mouse_location, units_num):
-    screen.fill(BROWN)
+    screen.fill(LIGHT_GREY)
     button_list.draw(screen)
     draw_unit_choice_text(screen, button_list, units_num)
     draw_mouse(screen, mouse_location)
 
 
 def draw_mouse(screen, mouse_location):
-    pygame.draw.circle(screen, WHITE, (mouse_location[0], mouse_location[1]), 2)
+    pygame.draw.circle(screen, LIGHT_BLUE, (mouse_location[0], mouse_location[1]), 4)
     pygame.mouse.set_visible(False)
 
 
@@ -104,7 +106,7 @@ def get_button_title_details(unit_name, unit_location, chosen_unit_list):
 
 
 def get_chosen_button_title_details(text, location):
-    title_text, title_rect = imf.get_text_stats(text, 30, WHITE, location)
+    title_text, title_rect = imf.get_text_stats(text, 30, LIGHT_BLUE, location)
     return title_text, title_rect
 
 

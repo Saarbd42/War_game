@@ -1,5 +1,5 @@
 import pygame
-
+import project.general_functions.colors as cl
 WHITE = (255, 255, 255)
 
 
@@ -44,8 +44,8 @@ def user_events():
     return running, did_user_click
 
 
-def draw_mouse(screen, mouse_location):
-    pygame.draw.circle(screen, WHITE, (mouse_location[0], mouse_location[1]), 2)
+def draw_mouse(screen, mouse_location, color=cl.LIGHT_BLUE, size=4):
+    pygame.draw.circle(screen, color, (mouse_location[0], mouse_location[1]), size)
     pygame.mouse.set_visible(False)
 
 

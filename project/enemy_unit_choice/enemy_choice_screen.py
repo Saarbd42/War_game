@@ -7,6 +7,7 @@ import project.general_functions.colors as cl
 
 BROWN = (129, 127, 38)
 BLACK = (0, 0, 0)
+LIGHT_GREY = (237, 237, 242)
 
 
 def show_enemy_choice_screen(player_units, enemy_chosen_units):
@@ -43,7 +44,7 @@ def check_for_spies(player_units):
 
 
 def draw_everything_in_enemy_choice_stage(screen, position_list, path_list, mouse_position):
-    screen.fill(BROWN)
+    screen.fill(LIGHT_GREY)
     draw_enemy_units(screen, position_list, path_list)
     draw_enemy_choice_text(screen)
     pyf.draw_mouse(screen, mouse_position)
@@ -60,7 +61,7 @@ def draw_enemy_choice_head_line(screen):
 
 
 def draw_enemy_choice_bottom_line(screen):
-    title_text, title_rect = imf.get_text_stats("Click anywhere to continue", 45, cl.WHITE, [240, 330])
+    title_text, title_rect = imf.get_text_stats("Click anywhere to continue", 45, cl.DARK_RED, [240, 330])
     imf.draw_titles(screen, [title_text, title_rect])
 
 
@@ -74,7 +75,7 @@ def draw_enemy_units(screen, position_list, path_list):
 
 def get_enemy_unit_text_details(path, position):
     enemy_unit_name = get_name_from_path(path)
-    title_text, title_rect = imf.get_text_stats(enemy_unit_name, 30, pyf.WHITE,
+    title_text, title_rect = imf.get_text_stats(enemy_unit_name, 30, cl.DARK_RED,
                                                 [position[0], position[1] + 80])
     return title_text, title_rect
 
