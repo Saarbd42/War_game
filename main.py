@@ -1,9 +1,9 @@
 import pygame
 import sys
-import enemy_unit_choice.enemy_unit_choice_functions as ecf
-import main_game_functions as mgf
-import army.army_functions as army_f
-import strategy_choice.strategy_choice_screen as scs
+import project.enemy_unit_choice.enemy_unit_choice_functions as ecf
+import project.main_game_functions as mgf
+import project.army.army_functions as army_f
+import project.strategy_choice.strategy_choice_screen as scs
 
 player_army, enemy_army = mgf.get_game_armies()
 
