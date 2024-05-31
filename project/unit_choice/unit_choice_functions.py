@@ -17,7 +17,7 @@ def get_button_list():
 
 def get_unit_buttons():
     button_list = []
-    button_position_list = [[50, 100], [130, 98], [250, 100], [340, 100],
+    button_position_list = [[50, 100], [130, 98], [250, 100], [352, 90],
                             [50, 220], [165, 220], [278, 220], [355, 220]]
     for i in range(len(button_position_list)):
         string = get_sprite_paths(UNITS_NAMES[i])
