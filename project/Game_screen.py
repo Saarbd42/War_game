@@ -6,24 +6,28 @@ import project.general_functions.pygame_functions as pyf
 class Game_screen:
     def __init__(self):
         self.width, self.height, self.fps = const.get_constants()
+        self.mouse_position = None
+        self.current_game_state = None
 
-    def start_screen_loop(self, current_game_state=None):
-        # Initialize Pygame
+    def start_screen_loop(self):
         screen, clock = pyf.initiate_pygame(self.width, self.height)
-
         running = True
-
-        # Game loop
         while running:
-            mouse_position = self.get_mouse_position()
-            running, did_user_click = self.user_choice_events()
-
-            current_game_state = self.screen_logic(current_game_state)
-
+            running = self.screen_logic()
+            self.draw_everything(screen)
             clock = pyf.update_frame(clock, self.fps)
+        return self.current_game_state
 
-    def screen_logic(self, current_game_state):
-        return None
+    def screen_logic(self):
+        running, did_user_click = self.user_choice_events()
+        self.mouse_position = self.get_mouse_position()
+        return running
+
+    def update_current_game_state(self, new_game_state):
+        self.current_game_state = new_game_state
+
+    def draw_everything(self, screen):
+        return
 
     def user_choice_events(self):
         # Event handling

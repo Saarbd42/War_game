@@ -1,4 +1,5 @@
-1. Fix Sprites (all should look like artillery)
+1. Fix Sprites (all should look like artillery) - Done
+2. Do Game_Screen_class
 2. Army class + Fix of Unit Classes
 3. Build the following screen:
     a. Territory and civil situation

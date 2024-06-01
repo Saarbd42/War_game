@@ -26,8 +26,9 @@ def get_unit_buttons():
 
 
 def get_sprite_paths(sprite_name):
-    string = ["sprites/" + str(sprite_name) + ".png",
-              "sprites/" + str(sprite_name) + "_blue_mark.png"]
+    initial_path = r'C:\Users\97252\Desktop\CS\PersonalProjects\War_game\sprites\\'
+    string = [initial_path + str(sprite_name) + ".png",
+              initial_path + str(sprite_name) + "_blue_mark.png"]
     return string
 
 
