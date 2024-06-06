@@ -1,7 +1,6 @@
-import project.unit_choice.unit_choice_screen as ucs
-import project.enemy_unit_choice.enemy_unit_choice_functions as ecf
+from project.Game_manager import Game_manager
 
-player_chosen_units = ucs.show_unit_choice_screen()
-# enemy_chosen_units = ecf.get_iranian_proxy()
-# print(enemy_chosen_units)
-print(player_chosen_units)
+game_manger = Game_manager()
+game_manger.start_game_loop()
+
+
