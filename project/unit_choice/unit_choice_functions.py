@@ -1,5 +1,5 @@
 import pygame
-import project.unit_choice.button as bt
+import project.Button as bt
 import project.general_functions.images_functions as imf
 from project.general_functions.colors import BLACK, LIGHT_BLUE, LIGHT_GREY
 

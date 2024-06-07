@@ -1,6 +1,13 @@
 import pygame
 
 
+def get_sprite_paths(sprite_name):
+    initial_path = r'C:\Users\97252\Desktop\CS\PersonalProjects\War_game\sprites\\'
+    string = [initial_path + str(sprite_name) + ".png",
+              initial_path + str(sprite_name) + "_blue_mark.png"]
+    return string
+
+
 def draw_titles(screen, title_data):
     # Draw the title text
     screen.blit(title_data[0], title_data[1])

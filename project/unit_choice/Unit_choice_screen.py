@@ -4,19 +4,14 @@ from project.general_functions.colors import LIGHT_GREY
 import pygame
 
 
-class Unit_choice_screen(gs.Game_screen):
+class Unit_choice_screen(gs.GameScreen):
     def __init__(self):
         super(Unit_choice_screen, self).__init__()
         self.current_game_state = []
         self.button_list = None
         self.units_num = 0
 
-    def screen_logic(self):
-        running, did_user_click = self.user_choice_events()
-        self.mouse_position = self.get_mouse_position()
-        return self.unit_choice_logic(did_user_click)
-
-    def unit_choice_logic(self, did_user_click):
+    def internal_screen_logic(self, did_user_click):
         self.update_button_list(did_user_click)
         if did_user_click:
             self.change_data_according_to_user_actions()

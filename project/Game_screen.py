@@ -3,7 +3,7 @@ import project.unit_choice.unit_choice_constants as const
 import project.general_functions.pygame_functions as pyf
 
 
-class Game_screen:
+class GameScreen:
     def __init__(self):
         self.width, self.height, self.fps = const.get_constants()
         self.mouse_position = None
@@ -21,10 +21,15 @@ class Game_screen:
     def screen_logic(self):
         running, did_user_click = self.user_choice_events()
         self.mouse_position = self.get_mouse_position()
-        return running
+        if not running:
+            return False
+        return self.internal_screen_logic(did_user_click)
 
     def update_current_game_state(self, new_game_state):
         self.current_game_state = new_game_state
+
+    def internal_screen_logic(self, did_user_click):
+        return
 
     def draw_everything(self, screen):
         return
