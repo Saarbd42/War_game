@@ -28,7 +28,7 @@ def egypt_1973_war():
 
 
 def iranian_proxy():
-    chosen_units = ["Infantry", "Anti-tank", "Missiles", "Spies"]
+    chosen_units = ["Infantry", "Artillery", "Missiles", "Air-defence"]
     return chosen_units
 
 

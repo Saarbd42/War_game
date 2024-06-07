@@ -1,8 +1,8 @@
 from project.unit_choice.Unit_choice_screen import Unit_choice_screen
-from project.Decision_choice_screen import DecisionChoiceScreen
+from project.war_decisions.Decision_choice_screen import DecisionChoiceScreen
 from project.army.Army import Army
 
-import project.enemy_unit_choice.enemy_unit_choice_functions as ecf
+import project.unit_choice.enemy_unit_choice.enemy_unit_choice_functions as euc
 
 
 # enemy_chosen_units = ecf.get_iranian_proxy()
@@ -12,23 +12,21 @@ class Game_manager:
         self.unit_choice_screen = Unit_choice_screen()
 
     def start_game_loop(self):
-        self.build_armies()
+        armies = self.build_armies()
         end = False
         while not end:
-            self.make_war_decision()
+            self.make_war_decision(armies)
             end = self.get_turn_results()
 
     def build_armies(self):
         chosen_units = self.unit_choice_screen.start_screen_loop()
-        print(chosen_units)
         player_army = Army(chosen_units)
-        print(player_army.get_army_units_names())
-        return
+        enemy_army = Army(euc.iranian_proxy())
+        return [player_army, enemy_army]
 
-    def make_war_decision(self):
-
+    def make_war_decision(self, armies):
         # Civilian screen
-        # spies
+        # Spies
         # Land Forces (+Artillery)
         # Air Forces
         # Missiles
