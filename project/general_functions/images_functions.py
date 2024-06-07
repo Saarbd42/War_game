@@ -1,10 +1,17 @@
 import pygame
 
 
-def get_sprite_paths(sprite_name):
+def get_sprite_paths(sprite_name, unit_choice=True,enemy=False):
     initial_path = r'C:\Users\97252\Desktop\CS\PersonalProjects\War_game\sprites\\'
-    string = [initial_path + str(sprite_name) + ".png",
-              initial_path + str(sprite_name) + "_blue_mark.png"]
+    if not enemy and unit_choice:
+        string = [initial_path + str(sprite_name) + ".png",
+                  initial_path + str(sprite_name) + "_blue_mark.png"]
+    elif not enemy and not unit_choice:
+        string = [initial_path + str(sprite_name) + "_blue_mark.png",
+                  initial_path + str(sprite_name) + "_blue_mark.png"]
+    else:
+        string = [initial_path + str(sprite_name) + "_red_mark.png",
+                  initial_path + str(sprite_name) + "_red_mark.png"]
     return string
 
 

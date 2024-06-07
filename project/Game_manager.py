@@ -1,5 +1,5 @@
 from project.unit_choice.Unit_choice_screen import Unit_choice_screen
-from project.war_decisions.Decision_choice_screen import DecisionChoiceScreen
+from project.war_decisions.SpiesScreen import SpiesScreen
 from project.army.Army import Army
 
 import project.unit_choice.enemy_unit_choice.enemy_unit_choice_functions as euc
@@ -26,6 +26,8 @@ class Game_manager:
 
     def make_war_decision(self, armies):
         # Civilian screen
+        spies_screen = SpiesScreen(armies[0], armies[1])
+        spies_screen.start_screen_loop()
         # Spies
         # Land Forces (+Artillery)
         # Air Forces
