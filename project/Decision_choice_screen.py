@@ -5,30 +5,41 @@ from project.Button import Button
 import pygame
 
 
-class Decision_choice_screen(GameScreen):
-    def __init__(self):
-        super(Decision_choice_screen, self).__init__()
-        self.current_game_state = []
+class DecisionChoiceScreen(GameScreen):
+    def __init__(self, player_army, enemy_army):
+        super(DecisionChoiceScreen, self).__init__()
+        self.current_game_state = [player_army, enemy_army]
         self.button_list = self.get_initial_button_list()
         self.choice = False
 
+    @staticmethod
+    def get_button_position_list():
+        return []
+
+    def get_relevant_units(self):
+        return []
+
+    def change_data_according_to_user_actions(self):
+        return
+
+    def draw_unit_choice_text(self, screen):
+        return
+
     def get_initial_button_list(self):
+        units_names = self.get_relevant_units()
         button_list = pygame.sprite.Group()
-        origin_button_list = self.get_buttons()
+        origin_button_list = self.get_buttons(units_names)
         for button in origin_button_list:
             button_list.add(button)
         return button_list
 
-    def get_buttons(self):
+    def get_buttons(self, units_names):
         button_list = []
         button_position_list = self.get_button_position_list()
         for i in range(len(button_position_list)):
-            string = get_sprite_paths(UNITS_NAMES[i]) # TODO: DECIDE OF BACKEND LOGIC
-            button_list.append(Button(button_position_list[i], string, UNITS_NAMES[i])) # TODO: DECIDE OF BACKEND LOGIC
+            string = get_sprite_paths(units_names[i])
+            button_list.append(Button(button_position_list[i], string, units_names[i]))
         return button_list
-
-    def get_button_position_list(self):
-        return [[0,0]]
 
     def internal_screen_logic(self, did_user_click):
         if did_user_click:
@@ -36,9 +47,6 @@ class Decision_choice_screen(GameScreen):
             if self.choice:
                 return False
         return True
-
-    def change_data_according_to_user_actions(self):
-        return
 
     def draw_everything(self, screen):
         screen.fill(LIGHT_GREY)
@@ -50,7 +58,5 @@ class Decision_choice_screen(GameScreen):
         pygame.draw.circle(screen, LIGHT_BLUE, (self.mouse_position[0], self.mouse_position[1]), 4)
         pygame.mouse.set_visible(False)
 
-    def draw_unit_choice_text(self, screen):
-        return
 
 

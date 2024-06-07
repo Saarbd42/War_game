@@ -1,4 +1,7 @@
 from project.unit_choice.Unit_choice_screen import Unit_choice_screen
+from project.Decision_choice_screen import DecisionChoiceScreen
+from project.army.Army import Army
+
 import project.enemy_unit_choice.enemy_unit_choice_functions as ecf
 
 
@@ -18,9 +21,12 @@ class Game_manager:
     def build_armies(self):
         chosen_units = self.unit_choice_screen.start_screen_loop()
         print(chosen_units)
+        player_army = Army(chosen_units)
+        print(player_army.get_army_units_names())
         return
 
     def make_war_decision(self):
+
         # Civilian screen
         # spies
         # Land Forces (+Artillery)

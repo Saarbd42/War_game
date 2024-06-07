@@ -1,10 +1,9 @@
-class Unit:
-    def __init__(self, name):
-        self.name = name
-        self.life = self.get_initial_data()[0]
-        self.atk_dmg = self.get_initial_data()[0]
-        self.def_dmg = self.get_initial_data()[0]
-        self.current_command = None
 
-    def get_initial_data(self):
-        return [0, 0, 0]
+class Unit:
+    def __init__(self, unit_dict):
+        self.name = unit_dict["name"]
+        self.life = unit_dict["life"]
+        self.atk_dmg = unit_dict["attack dmg"]
+        self.def_dmg = unit_dict["defense dmg"]
+        self.visible = unit_dict["visible"]
+        self.ground = unit_dict["ground"]
