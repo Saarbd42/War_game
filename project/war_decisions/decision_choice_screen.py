@@ -13,16 +13,16 @@ class DecisionChoiceScreen(GameScreen):
         self.choice = False
 
     @staticmethod
-    def get_button_position_list():
+    def get_button_position_list(): # Write according a specific screen
         return []
 
-    def get_relevant_units(self):
+    def get_relevant_units(self):  # Write according a specific screen
         return []
 
-    def change_data_according_to_user_actions(self):
+    def change_data_according_to_user_actions(self): # Write according a specific screen
         return
 
-    def draw_unit_choice_text(self, screen):
+    def draw_unit_choice_text(self, screen): # Write according a specific screen
         return
 
     def get_initial_button_list(self):
