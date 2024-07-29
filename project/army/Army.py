@@ -18,8 +18,8 @@ class Army:
     def build_army(unit_choices):
         army_units = []
         for unit_name in unit_choices:
-            for dict in ALL_UNITS_DICTS:
-                if unit_name == dict["name"]:
-                    army_units.append(Unit(dict))
+            for single_dict in ALL_UNITS_DICTS:
+                if unit_name == single_dict["name"]:
+                    army_units.append(Unit(single_dict))
         return army_units
 

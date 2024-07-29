@@ -3,17 +3,17 @@ import project.general_functions.images_functions as imf
 from project.general_functions.colors import BLACK, GREEN
 
 
-class SpiesScreen(DecisionChoiceScreen):
+class PlayerUnitsScreen(DecisionChoiceScreen):
     def __init__(self, player_army, enemy_army):
-        super(SpiesScreen, self).__init__(player_army, enemy_army)
+        super(PlayerUnitsScreen, self).__init__(player_army, enemy_army)
 
     @staticmethod
     def get_button_position_list():
         return [[100, 100], [300, 100], [100, 220], [300, 220]]
 
     def get_relevant_units(self):
-        enemy_army = self.current_game_state[1]
-        return enemy_army.get_army_units_names()
+        player_army = self.current_game_state[0]
+        return player_army.get_army_units_names()
 
     def change_data_according_to_user_actions(self):
         self.choice = True
@@ -25,7 +25,7 @@ class SpiesScreen(DecisionChoiceScreen):
 
     @staticmethod
     def draw_the_head_line(screen):
-        title_text, title_rect = imf.get_text_stats("Enemy units status", 60, BLACK, [240, 40])
+        title_text, title_rect = imf.get_text_stats("Our Army", 60, BLACK, [240, 40])
         imf.draw_titles(screen, [title_text, title_rect])
 
     def draw_button_names(self, screen):
@@ -33,6 +33,6 @@ class SpiesScreen(DecisionChoiceScreen):
         for i in range(len(unit_location_list)):
             unit_location_list[i][1] += 85
             unit_location_list[i][0] += 40
-            title_text, title_rect = imf.get_text_stats(f"Life: {self.current_game_state[1].units[i].life}", 32, GREEN,
+            title_text, title_rect = imf.get_text_stats(f"Life: {self.current_game_state[0].units[i].life}", 32, GREEN,
                                                         unit_location_list[i])
             imf.draw_titles(screen, [title_text, title_rect])
