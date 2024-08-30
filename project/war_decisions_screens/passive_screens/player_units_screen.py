@@ -1,4 +1,4 @@
-from project.war_decisions.Decision_choice_screen import DecisionChoiceScreen
+from project.base_classes.Decision_choice_screen import DecisionChoiceScreen
 import project.general_functions.images_functions as imf
 from project.general_functions.colors import BLACK, GREEN
 
@@ -15,8 +15,9 @@ class PlayerUnitsScreen(DecisionChoiceScreen):
         player_army = self.current_game_state[0]
         return player_army.get_army_units_names()
 
-    def change_data_according_to_user_actions(self):
-        self.choice = True
+    def change_data_according_to_user_actions(self, did_user_click):
+        if did_user_click:
+            self.end = True
 
     def draw_unit_choice_text(self, screen):
         self.draw_the_head_line(screen)

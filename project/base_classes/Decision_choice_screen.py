@@ -9,21 +9,41 @@ class DecisionChoiceScreen(GameScreen):
     def __init__(self, player_army, enemy_army):
         super(DecisionChoiceScreen, self).__init__()
         self.current_game_state = [player_army, enemy_army]
-        self.button_list = self.get_initial_button_list()
-        self.choice = False
+        self.button_list = None  # self.get_initial_button_list()
+        self.end = False
 
     @staticmethod
-    def get_button_position_list(): # Write according a specific screen
+    def get_button_position_list():
+        # Write according a specific screen
+        # EXAMPLE:
+        # return [[100, 100], [300, 100], [100, 220], [300, 220]]
         return []
 
-    def get_relevant_units(self):  # Write according a specific screen
+    def get_relevant_units(self):
+        # Write according a specific screen
+        # EXAMPLE:
+        # player_army = self.current_game_state[0]
+        # return player_army.get_army_units_names()
         return []
 
-    def change_data_according_to_user_actions(self): # Write according a specific screen
+    def change_data_according_to_user_actions(self, did_user_click):
+        # Write according a specific screen
         return
 
-    def draw_unit_choice_text(self, screen): # Write according a specific screen
+    def draw_unit_choice_text(self, screen):
+        # Write according a specific screen
+        # EXAMPLE:
+        # self.draw_the_head_line(screen)
+        # self.draw_button_names(screen)
         return
+
+    def internal_screen_logic(self, did_user_click):
+        if self.button_list is None:
+            self.button_list = self.get_initial_button_list()
+        self.change_data_according_to_user_actions(did_user_click)
+        if self.end:
+            return False
+        return True
 
     def get_initial_button_list(self):
         units_names = self.get_relevant_units()
@@ -41,13 +61,6 @@ class DecisionChoiceScreen(GameScreen):
             button_list.append(Button(button_position_list[i], string, units_names[i]))
         return button_list
 
-    def internal_screen_logic(self, did_user_click):
-        if did_user_click:
-            self.change_data_according_to_user_actions()
-            if self.choice:
-                return False
-        return True
-
     def draw_everything(self, screen):
         screen.fill(LIGHT_GREY)
         self.button_list.draw(screen)
@@ -57,6 +70,3 @@ class DecisionChoiceScreen(GameScreen):
     def draw_mouse(self, screen):
         pygame.draw.circle(screen, LIGHT_BLUE, (self.mouse_position[0], self.mouse_position[1]), 4)
         pygame.mouse.set_visible(False)
-
-
-

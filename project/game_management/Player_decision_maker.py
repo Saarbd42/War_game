@@ -1,5 +1,5 @@
-from project.war_decisions.passive_screens.spies_screen import SpiesScreen
-from project.war_decisions.passive_screens.player_units_screen import PlayerUnitsScreen
+from project.war_decisions_screens.passive_screens.spies_screen import SpiesScreen
+from project.war_decisions_screens.passive_screens.player_units_screen import PlayerUnitsScreen
 
 
 class PlayerDecisionMaker:
