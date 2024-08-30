@@ -50,7 +50,7 @@ Air_defence = {
 
 Cyber = {
     "name": "Cyber",
-    "life": 1,
+    "life": "n/a",
     "attack dmg": 0,
     "defense dmg": 0,
     "visible": False,
@@ -58,7 +58,7 @@ Cyber = {
 
 Spies = {
     "name": "Spies",
-    "life": 1,
+    "life": "n/a",
     "attack dmg": 0,
     "defense dmg": 0,
     "visible": False,

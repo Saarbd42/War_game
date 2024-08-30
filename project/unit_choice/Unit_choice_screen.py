@@ -1,4 +1,4 @@
-import project.Game_screen as gs
+import project.base_classes.Game_screen as gs
 from project.unit_choice import unit_choice_functions as ucf
 from project.general_functions.colors import LIGHT_GREY
 import pygame
@@ -10,6 +10,7 @@ class Unit_choice_screen(gs.GameScreen):
         self.current_game_state = []
         self.button_list = None
         self.units_num = 0
+        self.max_units = 4
 
     def internal_screen_logic(self, did_user_click):
         self.update_button_list(did_user_click)

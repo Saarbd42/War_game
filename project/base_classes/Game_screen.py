@@ -18,6 +18,14 @@ class GameScreen:
             clock = pyf.update_frame(clock, self.fps)
         return self.current_game_state
 
+    # THINGS TO FILL IN FOR EVERY UNIQUE SCREEN
+    def internal_screen_logic(self, did_user_click):
+        return
+
+    # THINGS TO FILL IN FOR EVERY UNIQUE SCREEN
+    def draw_everything(self, screen):
+        return
+
     def screen_logic(self):
         running, did_user_click = self.user_choice_events()
         self.mouse_position = self.get_mouse_position()
@@ -27,12 +35,6 @@ class GameScreen:
 
     def update_current_game_state(self, new_game_state):
         self.current_game_state = new_game_state
-
-    def internal_screen_logic(self, did_user_click):
-        return
-
-    def draw_everything(self, screen):
-        return
 
     def user_choice_events(self):
         # Event handling

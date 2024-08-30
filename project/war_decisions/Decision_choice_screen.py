@@ -1,7 +1,7 @@
-from project.Game_screen import GameScreen
+from project.base_classes.Game_screen import GameScreen
 from project.general_functions.colors import LIGHT_GREY, LIGHT_BLUE
 from project.general_functions.images_functions import get_sprite_paths
-from project.Button import Button
+from project.base_classes.Button import Button
 import pygame
 
 

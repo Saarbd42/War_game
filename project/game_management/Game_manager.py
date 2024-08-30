@@ -1,5 +1,5 @@
 from project.army.Army_builder import ArmyBuilder
-from project.Single_turn_logic import SingleTurnLogic
+from project.game_management.Single_turn_logic import SingleTurnLogic
 
 
 class Game_manager:

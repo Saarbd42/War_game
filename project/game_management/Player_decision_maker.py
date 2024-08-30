@@ -7,9 +7,12 @@ class PlayerDecisionMaker:
         self.name = "PlayerDecisionMaker"
 
     def player_make_war_decision(self, armies):
+        '''
+        :param armies: a list of two armies [player_army, enemy_army]
+        :return: player decisions list
+        '''
         player_decisions = []
         self.show_passive_screens(armies)
-
         # Land Forces (+Artillery)
         # Air Forces
         # Missiles

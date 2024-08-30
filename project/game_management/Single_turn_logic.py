@@ -1,4 +1,4 @@
-from project.war_decisions.Player_decision_maker import PlayerDecisionMaker
+from project.game_management.Player_decision_maker import PlayerDecisionMaker
 
 
 class SingleTurnLogic:
