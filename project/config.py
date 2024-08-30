@@ -3,3 +3,5 @@ COLOR_KEY = (163, 73, 164)
 WIDTH = 480
 HEIGHT = 360
 FPS = 60
+
+LAND_FORCES_NAMES = ["Tanks", "Artillery", "Infantry"]
