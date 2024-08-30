@@ -1,4 +1,4 @@
-from project.army.Army_builder import ArmyBuilder
+from project.game_management.Army_builder import ArmyBuilder
 from project.game_management.Single_turn_logic import SingleTurnLogic
 
 

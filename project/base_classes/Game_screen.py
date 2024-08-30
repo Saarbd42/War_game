@@ -1,11 +1,10 @@
 import pygame
-import project.unit_choice.unit_choice_constants as const
 import project.general_functions.pygame_functions as pyf
-
+from project.config import WIDTH, HEIGHT, FPS
 
 class GameScreen:
     def __init__(self):
-        self.width, self.height, self.fps = const.get_constants()
+        self.width, self.height, self.fps = WIDTH, HEIGHT, FPS
         self.mouse_position = None
         self.current_game_state = None
 

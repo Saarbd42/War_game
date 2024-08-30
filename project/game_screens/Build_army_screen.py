@@ -1,5 +1,5 @@
 from project.base_classes.Decision_choice_screen import DecisionChoiceScreen
-from project.general_functions.colors import BLACK, GREEN, LIGHT_BLUE
+from project.general_functions.colors import BLACK, LIGHT_BLUE
 import project.general_functions.images_functions as imf
 
 
